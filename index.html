@@ -165,6 +165,28 @@
     padding:4px 12px; border-radius:999px;
   }
 
+  /* 릴스 시리즈 */
+  .reel-series{margin-bottom:16px; width:100%;}
+  .reel-series:last-child{margin-bottom:0;}
+  .reel-series-label{font-size:13px; font-weight:800; color:var(--pink-deep); margin:0 0 8px;}
+  .reel-grid{display:flex; gap:8px;}
+  .reel-tile{
+    flex:1; max-width:76px; aspect-ratio:1/1; border-radius:12px; border:none; cursor:pointer;
+    background:linear-gradient(165deg,#FFD9C8,#FFB9CB); color:#fff; position:relative;
+    display:flex; align-items:center; justify-content:center; font-size:19px;
+  }
+  .reel-tile:hover{filter:brightness(1.05);}
+  .reel-tile .num{position:absolute; top:6px; left:7px; font-size:10.5px; font-weight:800; color:#fff; opacity:.85;}
+
+  /* 릴스 미리보기 모달 */
+  .video-modal{position:fixed; inset:0; background:rgba(20,12,16,0.88); z-index:100; display:none; align-items:center; justify-content:center; padding:16px;}
+  .video-modal.open{display:flex;}
+  .video-modal-box{width:100%; max-width:380px; max-height:90vh; border-radius:18px; overflow:hidden; background:#000; position:relative;}
+  .video-modal-close{position:absolute; top:8px; right:8px; z-index:2; width:32px; height:32px; border-radius:50%; border:none; background:rgba(0,0,0,.55); color:#fff; font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .video-modal-frame{position:relative; width:100%; aspect-ratio:9/16; background:#000;}
+  .video-modal-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .video-modal-fallback{display:block; text-align:center; padding:10px; font-size:12.5px; color:#fff; background:#111; text-decoration:none;}
+
   footer{ text-align:center; padding:4px 18px 18px; color:var(--sub); font-size:11px; flex-shrink:0; }
   footer .copyright-box{
     background:var(--pink-bg); color:var(--pink-deep); border-radius:14px;
@@ -328,12 +350,47 @@
         </div>
       </section>
 
+      <section class="slide" id="slide-15b">
+        <div class="slide-inner">
+          <div class="slide-num">👀</div>
+          <h2 class="slide-title">영상으로도 보고 싶다면</h2>
+          <p class="slide-body" style="margin-bottom:18px;">같은 이야기를 릴스로도 풀었어요. 눌러서 바로 볼 수 있어요.</p>
+
+          <div class="reel-series">
+            <p class="reel-series-label">초1, 필즈레테 후기</p>
+            <div class="reel-grid">
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DD836uxTdtr')"><span class="num">①</span>▶</button>
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DEGsivdzCSI')"><span class="num">②</span>▶</button>
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DEjDXJ4TgIL')"><span class="num">③</span>▶</button>
+            </div>
+          </div>
+
+          <div class="reel-series">
+            <p class="reel-series-label">초2, 필즈 레테 후기</p>
+            <div class="reel-grid">
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DLTqg_7T5lX')"><span class="num">①</span>▶</button>
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DLlx12czPcg')"><span class="num">②</span>▶</button>
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DLgpK1wTWUP')"><span class="num">③</span>▶</button>
+            </div>
+          </div>
+
+          <div class="reel-series">
+            <p class="reel-series-label">초2, 필즈 6개월 후 그만둔 이유</p>
+            <div class="reel-grid">
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DS1CUYtEq4x')"><span class="num">①</span>▶</button>
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DS6MBmZEmBy')"><span class="num">②</span>▶</button>
+              <button class="reel-tile" type="button" onclick="return openReel(event,'DS_SsbyE2zI')"><span class="num">③</span>▶</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="slide slide-closing" id="slide-16">
         <div class="slide-inner">
           <p class="closing-line">경빈이는 막혔을 때 공부를 이어가는 방법을,<br>저는 아이 수학을 봐주는 방법을 배웠어요.</p>
           <div class="follow-box">
             <img class="avatar" src="logo-follow.png" alt="투빈맘">
-            <p class="follow-line">이런 엄마표 수학 이야기,<br>더 자주 보고 싶다면<br><strong>@2bin_mom</strong> 팔로우하고 함께해요 💗</p>
+            <p class="follow-line">이런 엄마표 공부 이야기,<br>더 자주 보고 싶다면<br><strong>@2bin_mom</strong> 팔로우하고 함께해요 💗</p>
             <a class="insta" href="https://www.instagram.com/2bin_mom/?hl=ko" target="_blank" rel="noopener">👉 @2bin_mom 팔로우하기</a>
           </div>
         </div>
@@ -341,11 +398,21 @@
 
     </div>
     <button class="nav-btn next" id="btnNext" aria-label="다음">›</button>
-    <div class="page-counter" id="pageCounter">1 / 18</div>
+    <div class="page-counter" id="pageCounter">1 / 19</div>
   </div>
 </div>
 
 <div class="dots" id="dots"></div>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-box">
+    <button class="video-modal-close" type="button" onclick="closeReel()" aria-label="닫기">✕</button>
+    <div class="video-modal-frame">
+      <iframe id="vmIframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <a class="video-modal-fallback" id="vmFallback" href="#" target="_blank" rel="noopener">📱 인스타에서 바로 보기</a>
+  </div>
+</div>
 <footer>
   <div class="copyright-box">
     <div class="line1">⚠️ 본 자료는 투빈맘이 직접 정리한 콘텐츠입니다.<br>무단 복제·캡처·배포 금지 🚫</div>
@@ -407,6 +474,22 @@ window.addEventListener('resize', () => {
   }, 200);
 });
 syncUI();
+
+function openReel(evt, shortcode){
+  if (evt) evt.preventDefault();
+  document.getElementById('vmIframe').src = 'https://www.instagram.com/reel/' + shortcode + '/embed/';
+  document.getElementById('vmFallback').href = 'https://www.instagram.com/reel/' + shortcode + '/';
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  return false;
+}
+function closeReel(){
+  document.getElementById('videoModal').classList.remove('open');
+  document.getElementById('vmIframe').src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('videoModal').addEventListener('click', (e) => { if (e.target.id === 'videoModal') closeReel(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReel(); });
 </script>
 </body>
 </html>
