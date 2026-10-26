@@ -187,8 +187,13 @@
   .video-modal-box{width:100%; max-width:380px; max-height:90vh; border-radius:18px; overflow:hidden; background:#000; position:relative;}
   .video-modal-close{position:absolute; top:8px; right:8px; z-index:2; width:32px; height:32px; border-radius:50%; border:none; background:rgba(0,0,0,.55); color:#fff; font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center;}
   .video-modal-frame{position:relative; width:100%; aspect-ratio:9/16; background:#000;}
-  .video-modal-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
-  .video-modal-fallback{display:block; text-align:center; padding:10px; font-size:12.5px; color:#fff; background:#111; text-decoration:none;}
+  .video-modal-frame img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;}
+  .video-modal-play{
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    padding:14px; font-size:14.5px; font-weight:800; color:#fff;
+    background:var(--pink-deep); text-decoration:none;
+  }
+  .video-modal-play:hover{background:var(--pink);}
 
   footer{ text-align:center; padding:4px 18px 18px; color:var(--sub); font-size:11px; flex-shrink:0; }
   footer .copyright-box{
@@ -418,9 +423,9 @@
   <div class="video-modal-box">
     <button class="video-modal-close" type="button" onclick="closeReel()" aria-label="닫기">✕</button>
     <div class="video-modal-frame">
-      <iframe id="vmIframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <img id="vmImg" src="" alt="릴스 미리보기">
     </div>
-    <a class="video-modal-fallback" id="vmFallback" href="#" target="_blank" rel="noopener">📱 인스타에서 바로 보기</a>
+    <a class="video-modal-play" id="vmPlay" href="#" target="_blank" rel="noopener">▶ 인스타그램에서 재생하기</a>
   </div>
 </div>
 <footer>
@@ -485,17 +490,22 @@ window.addEventListener('resize', () => {
 });
 syncUI();
 
+const REEL_THUMBS = {
+  'DD836uxTdtr':'s1-1', 'DEGsivdzCSI':'s1-2', 'DEjDXJ4TgIL':'s1-3',
+  'DLTqg_7T5lX':'s2-1', 'DLlx12czPcg':'s2-2', 'DLgpK1wTWUP':'s2-3',
+  'DS1CUYtEq4x':'s3-1', 'DS6MBmZEmBy':'s3-2', 'DS_SsbyE2zI':'s3-3'
+};
 function openReel(evt, shortcode){
   if (evt) evt.preventDefault();
-  document.getElementById('vmIframe').src = 'https://www.instagram.com/reel/' + shortcode + '/embed/';
-  document.getElementById('vmFallback').href = 'https://www.instagram.com/reel/' + shortcode + '/';
+  const name = REEL_THUMBS[shortcode];
+  document.getElementById('vmImg').src = name ? ('reel-thumbs/' + name + '.jpg') : '';
+  document.getElementById('vmPlay').href = 'https://www.instagram.com/reel/' + shortcode + '/';
   document.getElementById('videoModal').classList.add('open');
   document.body.style.overflow = 'hidden';
   return false;
 }
 function closeReel(){
   document.getElementById('videoModal').classList.remove('open');
-  document.getElementById('vmIframe').src = '';
   document.body.style.overflow = '';
 }
 document.getElementById('videoModal').addEventListener('click', (e) => { if (e.target.id === 'videoModal') closeReel(); });
