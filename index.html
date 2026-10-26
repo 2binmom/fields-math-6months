@@ -166,19 +166,20 @@
   }
 
   /* 릴스 시리즈 */
-  .reel-series{margin-bottom:14px; width:100%;}
+  .slide-reels .slide-inner{padding:22px 26px; justify-content:flex-start;}
+  .reel-series{margin-bottom:9px; width:100%;}
   .reel-series:last-child{margin-bottom:0;}
-  .reel-series-label{font-size:13px; font-weight:800; color:var(--pink-deep); margin:0 0 7px;}
-  .reel-grid{display:flex; gap:8px;}
+  .reel-series-label{font-size:12px; font-weight:800; color:var(--pink-deep); margin:0 0 4px;}
+  .reel-grid{display:flex; gap:7px;}
   .reel-tile{
-    flex:1; max-width:80px; aspect-ratio:9/16; border-radius:10px; border:none; cursor:pointer;
+    flex:1; max-width:52px; aspect-ratio:3/4; border-radius:9px; border:none; cursor:pointer;
     background:linear-gradient(165deg,#FFD9C8,#FFB9CB); background-size:cover; background-position:center;
     color:#fff; position:relative; overflow:hidden;
-    display:flex; align-items:center; justify-content:center; font-size:17px;
+    display:flex; align-items:center; justify-content:center; font-size:14px;
   }
   .reel-tile::before{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,12,16,.1), rgba(20,12,16,.45));}
   .reel-tile .play{position:relative; z-index:1; filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));}
-  .reel-tile .num{position:absolute; top:5px; left:6px; font-size:10px; font-weight:800; color:#fff; opacity:.9; z-index:1; text-shadow:0 1px 2px rgba(0,0,0,.4);}
+  .reel-tile .num{position:absolute; top:4px; left:5px; font-size:8.5px; font-weight:800; color:#fff; opacity:.9; z-index:1; text-shadow:0 1px 2px rgba(0,0,0,.4);}
 
   /* 릴스 미리보기 모달 */
   .video-modal{position:fixed; inset:0; background:rgba(20,12,16,0.88); z-index:100; display:none; align-items:center; justify-content:center; padding:16px;}
@@ -352,10 +353,9 @@
         </div>
       </section>
 
-      <section class="slide" id="slide-15b">
+      <section class="slide slide-reels" id="slide-15b">
         <div class="slide-inner">
-          <div class="slide-num">👀</div>
-          <h2 class="slide-title" style="margin-bottom:20px;">영상으로도 보고 싶다면?👇🏻</h2>
+          <h2 class="slide-title" style="margin-bottom:12px;">영상으로도 보고 싶다면?👇🏻</h2>
 
           <div class="reel-series">
             <p class="reel-series-label">초1, 필즈 레테 후기</p>
